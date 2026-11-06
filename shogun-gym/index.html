@@ -61,12 +61,14 @@ header .btn{padding:10px 16px;font-size:14px}
 @keyframes push{from{transform:scale(1.14)}to{transform:scale(1)}}
 .hero::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(12,11,10,.1) 0%,rgba(12,11,10,.35) 45%,var(--ink) 100%)}
 .hero-in{padding:0 var(--pad) clamp(40px,8vh,90px);max-width:1180px}
+@media (min-width:961px){.hero-in{padding-right:calc(var(--pad) + clamp(80px,9vw,150px))}} /* Platz für das Zeichen rechts */
 h1{font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:clamp(56px,10.5vw,9.5rem);line-height:1;margin:0 0 22px;text-wrap:balance}
 h1 em{font-style:normal;color:var(--red-ink)}
 .lead{font-size:clamp(17px,1.6vw,21px);max-width:58ch;color:var(--body)}
 .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
-.vert{position:absolute;right:var(--pad);top:50%;transform:translateY(-50%);font-family:"Noto Serif JP",serif;writing-mode:vertical-rl;
-  font-size:clamp(60px,9vw,130px);line-height:1;color:var(--red-ink)}
+/* Zeichen oben rechts, nie neben der Überschrift; nowrap, damit die zwei Zeichen immer untereinander stehen */
+.vert{position:absolute;right:var(--pad);top:clamp(28px,6vh,72px);font-family:"Noto Serif JP",serif;writing-mode:vertical-rl;white-space:nowrap;
+  font-size:clamp(56px,7vw,112px);line-height:1;color:var(--red-ink)}
 
 section{padding:clamp(80px,12vw,150px) var(--pad)}
 .wrap{max-width:1180px;margin:0 auto}
@@ -136,7 +138,7 @@ footer .r{margin-left:auto}
   .bout,.split,.tgrid,.trial-grid{grid-template-columns:1fr}
   .bout{gap:8px}
   .cgrid{grid-template-columns:1fr}
-  .vert{top:28px;transform:none;font-size:64px}
+  .vert{font-size:64px}
 }
 @media (max-width:560px){
   body{font-size:16px}
